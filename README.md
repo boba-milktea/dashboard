@@ -1,15 +1,16 @@
-# Name of project
+# Personal Dashboard
 
-> A longer description
+> A simple yet dynamic personal dashboard to display real-time data including
+> weather updates, cryptocurrency prices, and a custom photo background sourced
+> from Unsplash.
 
 ## Table of contents
 
-- [Name of project](#name-of-project)
+- [Personal Dashboard](#personal-dashboard)
   - [Table of contents](#table-of-contents)
   - [General info](#general-info)
   - [Screenshots](#screenshots)
   - [Technologies](#technologies)
-  - [Setup](#setup)
   - [Code Examples](#code-examples)
   - [Features](#features)
   - [Status](#status)
@@ -22,55 +23,68 @@
 
 ## General info
 
-> A short description
+> This dashboard is designed to provide at-a-glance views of key real-time data,
+> styled with a vintage aesthetic using images from Unsplash. It includes a live
+> clock, current weather conditions, and Bitcoin price updates.
 
 ## Screenshots
 
-![Example screenshot](./planning/screenshot.jpg)
+![Example screenshot](./public/dashboard.png)
 
 ## Technologies
 
-- Node 14.16.0
-- VSC code
+- HTML5
+- CSS3
 - JavaScript
-- ...
-- ...
-
-## Setup
-
-- `npm run start`
+- Fetch API
+- Unsplash API
+- CoinGecko API
+- OpenWeatherMap API
 
 ## Code Examples
 
 ```js
-// the hello world program
-console.log("Hello World");
+// Fetch and display the photo background and author from Unsplash
+fetch(
+  "https://apis.scrimba.com/unsplash/photos/random?orientation=landscape&query=vintage"
+)
+  .then((res) => res.json())
+  .then((data) => {
+    document.body.style.backgroundImage = `url(${data.urls.regular})`;
+    document.getElementById("author").textContent = `By: ${data.user.name}`;
+  })
+  .catch((err) => {
+    document.body.style.backgroundImage =
+      "url(https://images.unsplash.com/photo-1560008511-11c63416e52d)";
+    document.getElementById("author").textContent = "By: Dodi Achmad";
+  });
 ```
 
 ## Features
 
 List of features ready and Todos for future development
 
--
--
--
+- Dynamic photo background sourced from Unsplash
+- Real-time cryptocurrency prices from CoinGecko
+- Real-time weather updates from OpenWeatherMap
+- Live updating digital clock
 
 To-do list:
 
--
--
+- Add user customization options for data sources
+- Implement additional APIs for news feeds or personal reminders
 
 ## Status
 
-Project is: _in progress_
+Project is: _done_
 
 ## Inspiration
 
-Project by freeCodeCamp.org
+Inspired by Scrimba.
 
 ## Contact
 
-By [Name]
+By [moba-milktea] (<https://github.com/boba-milktea>)
 
 ## Instructions for use
 
